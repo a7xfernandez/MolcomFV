@@ -49,8 +49,38 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -168,12 +198,21 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDbContext.vb" />
+    <Compile Include="Security\AppRole.vb" />
+    <Compile Include="Security\AppUser.vb" />
+    <Compile Include="Security\AppUserClaimsIdentityFactory.vb" />
+    <Compile Include="Security\AppUserPrincipal.vb" />
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="Controllers\AppController.vb" />
+    <Compile Include="Controllers\AuthController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.vb" />
+    <Compile Include="ViewModels\Auth\LogInModel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -190,6 +229,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Controllers\HomeController.vb" />
+    <Compile Include="Startup.vb" />
+    <Compile Include="AppViewPage.vb" />
+    <Compile Include="ViewModels\Auth\RegisterModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -200,6 +242,40 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\animate.min.css" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\demo.css" />
+    <Content Include="Assets\css\light-bootstrap-dashboard.css" />
+    <Content Include="Assets\css\pe-icon-7-stroke.css" />
+    <Content Include="Assets\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Assets\img\default-avatar.png" />
+    <Content Include="Assets\img\faces\face-0.jpg" />
+    <Content Include="Assets\img\faces\face-1.jpg" />
+    <Content Include="Assets\img\faces\face-2.jpg" />
+    <Content Include="Assets\img\faces\face-3.jpg" />
+    <Content Include="Assets\img\faces\face-4.jpg" />
+    <Content Include="Assets\img\faces\face-5.jpg" />
+    <Content Include="Assets\img\faces\face-6.jpg" />
+    <Content Include="Assets\img\faces\face-7.jpg" />
+    <Content Include="Assets\img\faces\tim_vector.jpe" />
+    <Content Include="Assets\img\favicon.ico" />
+    <Content Include="Assets\img\loading-bubbles.svg" />
+    <Content Include="Assets\img\mask.png" />
+    <Content Include="Assets\img\new_logo.png" />
+    <Content Include="Assets\img\sidebar-1.jpg" />
+    <Content Include="Assets\img\sidebar-2.jpg" />
+    <Content Include="Assets\img\sidebar-3.jpg" />
+    <Content Include="Assets\img\sidebar-4.jpg" />
+    <Content Include="Assets\img\sidebar-5.jpg" />
+    <Content Include="Assets\img\tim_80x80.png" />
+    <Content Include="Assets\js\bootstrap-checkbox-radio-switch.js" />
+    <Content Include="Assets\js\bootstrap-notify.js" />
+    <Content Include="Assets\js\bootstrap-select.js" />
+    <Content Include="Assets\js\bootstrap.min.js" />
+    <Content Include="Assets\js\chartist.min.js" />
+    <Content Include="Assets\js\demo.js" />
+    <Content Include="Assets\js\jquery-1.10.2.js" />
+    <Content Include="Assets\js\light-bootstrap-dashboard.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -209,6 +285,60 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\css\.DS_Store" />
+    <Content Include="Assets\fonts\.DS_Store" />
+    <Content Include="Assets\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Assets\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Assets\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Assets\img\.DS_Store" />
+    <Content Include="Assets\img\faces\.DS_Store" />
+    <Content Include="Assets\sass\.DS_Store" />
+    <Content Include="Assets\sass\lbd\.DS_Store" />
+    <Content Include="Assets\sass\lbd\mixins\_buttons.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_cards.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_chartist.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_icons.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_inputs.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_labels.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_morphing-buttons.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_navbars.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_social-buttons.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_tabs.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_transparency.scss" />
+    <Content Include="Assets\sass\lbd\mixins\_vendor-prefixes.scss" />
+    <Content Include="Assets\sass\lbd\_alerts.scss" />
+    <Content Include="Assets\sass\lbd\_buttons.scss" />
+    <Content Include="Assets\sass\lbd\_cards.scss" />
+    <Content Include="Assets\sass\lbd\_carousel.scss" />
+    <Content Include="Assets\sass\lbd\_chartist.scss" />
+    <Content Include="Assets\sass\lbd\_checkbox-radio-switch.scss" />
+    <Content Include="Assets\sass\lbd\_collapse.scss" />
+    <Content Include="Assets\sass\lbd\_datepicker.scss" />
+    <Content Include="Assets\sass\lbd\_dropdown.scss" />
+    <Content Include="Assets\sass\lbd\_flexisel.scss" />
+    <Content Include="Assets\sass\lbd\_footers.scss" />
+    <Content Include="Assets\sass\lbd\_icons.scss" />
+    <Content Include="Assets\sass\lbd\_inputs.scss" />
+    <Content Include="Assets\sass\lbd\_labels.scss" />
+    <Content Include="Assets\sass\lbd\_media.scss" />
+    <Content Include="Assets\sass\lbd\_misc.scss" />
+    <Content Include="Assets\sass\lbd\_mixins.scss" />
+    <Content Include="Assets\sass\lbd\_modal.scss" />
+    <Content Include="Assets\sass\lbd\_morphing-buttons.scss" />
+    <Content Include="Assets\sass\lbd\_navbars.scss" />
+    <Content Include="Assets\sass\lbd\_progress-bars.scss" />
+    <Content Include="Assets\sass\lbd\_responsive.scss" />
+    <Content Include="Assets\sass\lbd\_sections.scss" />
+    <Content Include="Assets\sass\lbd\_sidebar-and-main-panel.scss" />
+    <Content Include="Assets\sass\lbd\_sliders.scss" />
+    <Content Include="Assets\sass\lbd\_social-buttons.scss" />
+    <Content Include="Assets\sass\lbd\_tables.scss" />
+    <Content Include="Assets\sass\lbd\_tabs-navs-pagination.scss" />
+    <Content Include="Assets\sass\lbd\_tags.scss" />
+    <Content Include="Assets\sass\lbd\_tooltips-and-popovers.scss" />
+    <Content Include="Assets\sass\lbd\_typography.scss" />
+    <Content Include="Assets\sass\lbd\_variables.scss" />
+    <Content Include="Assets\sass\light-bootstrap-dashboard.scss" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -223,6 +353,10 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Auth\LogIn.vbhtml" />
+    <Content Include="Views\Auth\Register.vbhtml" />
+    <Content Include="Views\Shared\_LayoutPublico.vbhtml" />
+    <Content Include="Views\Shared\_LayoutPublico2.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -237,7 +371,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -273,9 +409,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50526</DevelopmentServerPort>
+          <DevelopmentServerPort>65088</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50526/</IISUrl>
+          <IISUrl>http://localhost:65088/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
