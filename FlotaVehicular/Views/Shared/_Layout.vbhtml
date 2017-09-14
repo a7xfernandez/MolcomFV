@@ -16,46 +16,16 @@ End Code
             </a>
         </div>
         <ul class="nav">
-            <li class="active">
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="pe-7s-graph"></i>
-                    <p>Panel de Control</p>
+            <li class="@Html.IsActive(controller:="Vehiculos", action:="Index")">
+                <a href="@Url.Action("Index", "Vehiculos")">
+                    <i class="pe-7s-car"></i>
+                    <p>Vehículos</p>
                 </a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="pe-7s-user"></i>
-                    <p>User Profile</p>
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="pe-7s-note2"></i>
-                    <p>Table List</p>
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="pe-7s-news-paper"></i>
-                    <p>Typography</p>
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="pe-7s-science"></i>
-                    <p>Icons</p>
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="pe-7s-map-marker"></i>
-                    <p>Maps</p>
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="pe-7s-bell"></i>
-                    <p>Notifications</p>
+                <a href="#">
+                    <i class="pe-7s-config"></i>
+                    <p>Configuración</p>
                 </a>
             </li>
         </ul>

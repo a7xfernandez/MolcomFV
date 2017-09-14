@@ -1,4 +1,6 @@
 ﻿Imports Microsoft.AspNet.Identity.EntityFramework
+Imports FlotaVehicular.Modelos
+Imports System.Data.Entity
 
 Public Class AppDbContext
     Inherits IdentityDbContext(Of AppUser)
@@ -9,4 +11,6 @@ Public Class AppDbContext
     Public Shared Function Create() As AppDbContext
         Return New AppDbContext()
     End Function
+
+    Public Property Vehiculos() As DbSet(Of Vehiculo)
 End Class

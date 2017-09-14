@@ -85,6 +85,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -199,6 +201,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDbContext.vb" />
+    <Compile Include="Controllers\VehiculosController.vb" />
+    <Compile Include="Helpers\MenuHelper.vb" />
+    <Compile Include="Models\VehiculoMarca.vb" />
+    <Compile Include="Models\Vehiculo.vb" />
+    <Compile Include="Models\VehiculoModelo.vb" />
     <Compile Include="Security\AppRole.vb" />
     <Compile Include="Security\AppUser.vb" />
     <Compile Include="Security\AppUserClaimsIdentityFactory.vb" />
@@ -356,7 +363,8 @@
     <Content Include="Views\Auth\LogIn.vbhtml" />
     <Content Include="Views\Auth\Register.vbhtml" />
     <Content Include="Views\Shared\_LayoutPublico.vbhtml" />
-    <Content Include="Views\Shared\_LayoutPublico2.vbhtml" />
+    <Content Include="Views\Shared\_LayoutMaster.vbhtml" />
+    <Content Include="Views\Vehiculos\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -391,7 +399,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
