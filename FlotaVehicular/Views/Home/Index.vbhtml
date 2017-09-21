@@ -194,3 +194,13 @@ End Code
         </div>
     </div>
 </div>
+
+@section scripts
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        demo.initChartist();
+
+    });
+</script>
+End Section

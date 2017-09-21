@@ -40,20 +40,10 @@
 @Scripts.Render("~/assets/js/chartist.min.js")
 <!--  Notifications Plugin    -->
 @Scripts.Render("~/assets/js/bootstrap-notify.js")
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 @Scripts.Render("~/assets/js/light-bootstrap-dashboard.js")
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 @Scripts.Render("~/assets/js/demo.js")
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        demo.initChartist();
-
-
-    });
-</script>
 
 @RenderSection("scripts", required:=False)
 </html>

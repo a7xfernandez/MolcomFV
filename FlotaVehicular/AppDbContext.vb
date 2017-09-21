@@ -13,4 +13,6 @@ Public Class AppDbContext
     End Function
 
     Public Property Vehiculos() As DbSet(Of Vehiculo)
+    Public Property Marcas() As DbSet(Of VehiculoMarca)
+    Public Property Modelos() As DbSet(Of VehiculoModelo)
 End Class

@@ -16,7 +16,7 @@ End Code
             </a>
         </div>
         <ul class="nav">
-            <li class="@Html.IsActive(controller:="Vehiculos", action:="Index")">
+            <li class="@Html.IsActive(controller:="Vehiculos")">
                 <a href="@Url.Action("Index", "Vehiculos")">
                     <i class="pe-7s-car"></i>
                     <p>Vehículos</p>
@@ -41,7 +41,7 @@ End Code
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Dashboard</a>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">Inicio</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-left">
@@ -139,3 +139,7 @@ End Code
         </div>
     </footer>
 </div>
+
+@section scripts
+    @RenderSection("scripts", False)
+End Section
