@@ -30,8 +30,10 @@ Namespace Controllers
             ViewBag.Marcas = db.Marcas.ToList()
             ViewBag.Modelos = db.Modelos.Include("Marca").ToList()
 
+            Dim data = New CrearVehiculo()
+
             'ViewBag.marcas = model.Marcas
-            Return View()
+            Return View(data)
         End Function
 
         ' GET: Vehiculos
