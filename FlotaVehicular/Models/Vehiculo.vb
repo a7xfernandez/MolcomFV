@@ -27,6 +27,9 @@ Namespace Modelos
         Public Property CaballosDeFuerzaFisicales As Decimal
         Public Property Potencia As Int16
 
+        ''Conductor
+        Public Property Conductor As Conductor
+
     End Class
 
     Public Enum Transmisiones

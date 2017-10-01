@@ -22,6 +22,12 @@ End Code
                     <p>Vehículos</p>
                 </a>
             </li>
+            <li class="@Html.IsActive(controller:="Marcas")">
+                <a href="@Url.Action("Index", "Marcas")">
+                    <i class="pe-7s-keypad"></i>
+                    <p>Marcas</p>
+                </a>
+            </li>
             <li>
                 <a href="#">
                     <i class="pe-7s-config"></i>

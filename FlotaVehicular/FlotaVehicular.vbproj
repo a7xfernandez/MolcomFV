@@ -201,8 +201,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDbContext.vb" />
+    <Compile Include="Controllers\MarcasController.vb" />
     <Compile Include="Controllers\VehiculosController.vb" />
     <Compile Include="Helpers\MenuHelper.vb" />
+    <Compile Include="Models\Conductor.vb" />
     <Compile Include="Models\VehiculoMarca.vb" />
     <Compile Include="Models\Vehiculo.vb" />
     <Compile Include="Models\VehiculoModelo.vb" />
@@ -367,6 +369,8 @@
     <Content Include="Views\Shared\_LayoutMaster.vbhtml" />
     <Content Include="Views\Vehiculos\Index.vbhtml" />
     <Content Include="Views\Vehiculos\Crear.vbhtml" />
+    <Content Include="Views\Marcas\Index.vbhtml" />
+    <Content Include="Views\Marcas\Crear.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
