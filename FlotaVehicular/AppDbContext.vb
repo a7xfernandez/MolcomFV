@@ -15,5 +15,6 @@ Public Class AppDbContext
     Public Property Vehiculos() As DbSet(Of Vehiculo)
     Public Property Marcas() As DbSet(Of VehiculoMarca)
     Public Property Modelos() As DbSet(Of VehiculoModelo)
+    Public Property CrearModeloes As System.Data.Entity.DbSet(Of ModelosVistas.CrearModelo)
     ''agregar modelos
 End Class

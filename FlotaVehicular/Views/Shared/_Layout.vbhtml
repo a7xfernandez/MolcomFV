@@ -28,6 +28,12 @@ End Code
                     <p>Marcas</p>
                 </a>
             </li>
+            <li class="@Html.IsActive(controller:="Modelos")">
+                <a href="@Url.Action("Index", "Modelos")">
+                    <i class="pe-7s-keypad"></i>
+                    <p>Modelos</p>
+                </a>
+            </li>
             <li>
                 <a href="#">
                     <i class="pe-7s-config"></i>
