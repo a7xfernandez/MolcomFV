@@ -202,6 +202,7 @@
   <ItemGroup>
     <Compile Include="AppDbContext.vb" />
     <Compile Include="Controllers\MarcasController.vb" />
+    <Compile Include="Controllers\ModelosController.vb" />
     <Compile Include="Controllers\VehiculosController.vb" />
     <Compile Include="Helpers\MenuHelper.vb" />
     <Compile Include="Models\Conductor.vb" />
@@ -241,6 +242,7 @@
     <Compile Include="Startup.vb" />
     <Compile Include="AppViewPage.vb" />
     <Compile Include="ViewModels\Auth\RegisterModel.vb" />
+    <Compile Include="ViewModels\CrearModelo.vb" />
     <Compile Include="ViewModels\CrearVehiculo.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -371,6 +373,8 @@
     <Content Include="Views\Vehiculos\Crear.vbhtml" />
     <Content Include="Views\Marcas\Index.vbhtml" />
     <Content Include="Views\Marcas\Crear.vbhtml" />
+    <Content Include="Views\Modelos\Index.vbhtml" />
+    <Content Include="Views\Modelos\Crear.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

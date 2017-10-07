@@ -18,7 +18,6 @@ Namespace Controllers
             Dim vehiculos = db.Vehiculos.
                 Include("Modelo.Marca").
                 ToList()
-
             Return View(vehiculos)
         End Function
 
